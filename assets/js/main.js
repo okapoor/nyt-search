@@ -10,14 +10,13 @@ var pub_date= $("<div>");
 var headline= $("<div>");
 var NumRec=2;
 
+
+
 function pullData(){
 	searchTerm = $("#searchTerm").val();
 	NumRec = $("#numRec option:selected").text();
-	// $( "#myselect option:selected" ).text();
 	StartYear = $("#startYear").val();
 	endYear = $("#endYear").val();
-
-
 	article = $("#topArticles")
 
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
@@ -72,7 +71,14 @@ function pullData(){
 
 $(document).ready(function() {
 
-	$("#search").click(pullData)
 
+	$("#search").click(pullData)
+	$("#clear").click (function(){
+		$("#topArticles").empty();
+		$("#searchTerm").val("");
+		$("#startYear").val("");
+		$("#endYear").val("");
+
+	})
 
 })
